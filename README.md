@@ -62,3 +62,95 @@ for review in reviews:
 - `beautifulsoup4`: For parsing HTML content.
 - `pandas`: For data manipulation.
 - Any other dependencies are automatically installed via pip during package installation.
+
+
+
+
+
+
+
+
+
+Trustpilot Scraper
+A Python package for scraping Trustpilot reviews, designed to retrieve review data including date, author, body, heading, rating, and location.
+Features
+
+Scrapes reviews from a specified Trustpilot page URL.
+Handles pagination to collect all reviews (up to a user-defined limit).
+Exports scraped reviews to JSON and CSV formats.
+Allows user input for the target URL and number of reviews to scrape.
+
+Prerequisites
+
+Python: Ensure Python 3.7 or higher is installed. Download from python.org if needed.
+pip: Python’s package manager, usually installed with Python. Verify with pip --version.
+
+Installation
+
+Clone the RepositoryClone this repository to your local machine using Git:
+git clone https://github.com/irfanalidv/trustpilot_scraper.git
+cd trustpilot_scraper
+
+
+Install DependenciesInstall the required packages using pip:
+pip install requests beautifulsoup4 pandas lxml
+
+
+Install the PackageInstall the trustpilot_scraper package:
+pip install .
+
+
+
+Usage
+
+Run the Test ScriptThe test_scraper.py script allows you to scrape reviews from a Trustpilot page, specify how many reviews to scrape, and export the results to JSON and CSV files.
+python test_scraper.py
+
+
+Follow the Prompts  
+
+You’ll be prompted to enter the Trustpilot review page URL (e.g., https://www.trustpilot.com/review/www.amazon.com).
+Next, enter the number of reviews you want to scrape (e.g., 5 for five reviews).
+
+
+View Results  
+
+The script will print the scraped reviews to the terminal.
+Results will be exported to reviews.json and reviews.csv in the project directory.
+
+
+
+Example Output
+When you run test_scraper.py, you might see:
+Enter the Trustpilot review page URL (e.g., https://www.trustpilot.com/review/www.amazon.com): https://www.trustpilot.com/review/www.amazon.com
+How many reviews would you like to scrape? (Enter a positive number): 5
+
+Review 1:
+Date: 2023-05-10
+Author: John Doe
+Location: US
+Rating: 5
+Heading: Excellent Experience
+Body: Great service...
+--------------------------------------------------
+
+Reviews exported to ./reviews.json
+Reviews exported to ./reviews.csv
+
+Files
+
+scraper.py: Core scraping logic (inside the trustpilot_scraper directory).
+test_scraper.py: Script to test the scraper with user inputs and export functionality.
+setup.py: Package installation script.
+reviews.json: Exported reviews in JSON format.
+reviews.csv: Exported reviews in CSV format.
+
+Notes
+
+Trustpilot Blocking: If Trustpilot blocks your requests (e.g., HTTP 403/429 errors), increase the delay in scraper.py (line 11) from time.sleep(2) to time.sleep(5).
+Legal Compliance: Ensure your usage complies with Trustpilot’s robots.txt and terms of service. Avoid excessive requests to prevent IP bans.
+Dependencies: If you encounter issues with missing packages, reinstall them using the command in the Installation section.
+
+License
+MIT License. See the LICENSE file for details.
+
